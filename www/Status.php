@@ -4,7 +4,7 @@
 class Status
 {
 
-    private function showError($statusCode)
+    private static function showError($statusCode)
     {
         $userInfo = [];
 
@@ -14,7 +14,7 @@ class Status
     }
 
     //Show oke
-    public function showOk($data)
+    public static function showOk($data)
     {
         $userInfo = [];
 
@@ -27,43 +27,45 @@ class Status
     }
 
     //Show server error
-    public function ServerError()
+    public static function ServerError()
     {
-        $this->showError(503);
+        self::showError(503);
     }
 
     //If it's not acceptable
-    public function notAcceptable()
+    public static function notAcceptable()
     {
-        $this->showError(406);
+        self::showError(406);
     }
 
     //Already exists
-    public function alreadyExists()
+    public static function alreadyExists()
     {
-        $this->showError(104);
+        self::showError(104);
     }
 
     //Not found the object
-    public function notFound()
+    public static function notFound()
     {
-        $this->showError(404);
+        self::showError(404);
     }
 
     //The object is empty
-    public function isEmpty()
+    public static function isEmpty()
     {
-        $this->showError(206);
+        self::showError(206);
     }
 
     //Token is not valid
-    public function tokenInvalid(){
-        $this->showError(498);
+    public static function tokenInvalid()
+    {
+        self::showError(498);
     }
 
     //Request not accepted
-    public function notAccepted(){
-        $this->showError(406);
+    public static function notAccepted()
+    {
+        self::showError(406);
     }
 
 }

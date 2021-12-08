@@ -2,6 +2,7 @@
 header("Content-Type:application/json");
 
 //imports
+include '../../config/DatabaseLocationHunter.php';
 include '../../authentication/Login.php';
 include '../../Status.php';
 include '../../StatusMessage.php';
