@@ -15,7 +15,6 @@ if (!empty($_POST['userName']) && !empty($_POST['password'])) {
     $userName = filter_var($userName, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
     $password = htmlspecialchars(trim($_POST["password"]), ENT_QUOTES);
     $password = filter_var($password, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH);
-    $password = password_hash($password, PASSWORD_DEFAULT);
 
     $signup = new Signup($userName, $password);
 
