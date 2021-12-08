@@ -28,6 +28,8 @@ class Login
                 $userInfo = mysqli_fetch_array($result);
 
                 if ($result->num_rows > 0) {
+                    var_dump($userInfo);
+                    echo $userInfo["Password"];
                     if (password_verify($this->password, $userInfo["Password"])) {
                         for ($i = 0; $i < sizeof($userInfo); $i++) {
                             unset($userInfo[$i]);
