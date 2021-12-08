@@ -24,7 +24,7 @@ class Signup
         $randomString = GenerateRandom::generateString($this->userName);
         $passwordHash = password_hash($this->password, PASSWORD_DEFAULT);
 
-        $query = "SELECT `ID` FROM `User` WHERE `Name` = '.$this->userName.'";
+        $query = "SELECT `ID` FROM `User` WHERE `Name` = '$this->userName'";
         $result = mysqli_query($this->conn, $query);
 
         if ($result->num_rows <= 0) {
@@ -33,7 +33,7 @@ class Signup
                     `Password`,
                     `Key`
                 ) VALUES (
-                    '.$this->userName.',
+                    '$this->userName',
                     '$passwordHash',
                     '$randomString'
                 )";
