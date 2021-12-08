@@ -30,6 +30,7 @@ class Login
                 if ($result->num_rows > 0) {
                     var_dump($userInfo);
                     echo $userInfo["Password"];
+                    echo $this->password;
                     if (password_verify($this->password, $userInfo["Password"])) {
                         for ($i = 0; $i < sizeof($userInfo); $i++) {
                             unset($userInfo[$i]);
