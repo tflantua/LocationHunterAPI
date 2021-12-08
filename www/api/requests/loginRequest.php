@@ -1,4 +1,7 @@
 <?php
+header("Content-Type:application/json");
+
+//imports
 include '../../authentication/Login.php';
 include '../../Status.php';
 include '../../StatusMessage.php';
@@ -11,7 +14,6 @@ if (!empty($_POST['userName']) && !empty($_POST['password'])) {
 
     //Function
     $login = new Login($userName, $password);
-    echo 'yes';
     $login->logIn();
 } else {
     $status = new Status();
