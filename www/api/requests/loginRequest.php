@@ -11,6 +11,7 @@ if (!empty($_POST['userName']) && !empty($_POST['password'])) {
 
     //Function
     $login = new Login($userName, $password);
+    var_dump($login);
     $login->logIn();
 } else {
     $status = new Status();
