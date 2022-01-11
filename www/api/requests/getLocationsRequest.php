@@ -4,6 +4,7 @@ header("Content-Type:application/json");
 //imports
 include '../../config/DatabaseLocationHunter.php';
 include '../../authentication/CheckKey.php';
+include '../../LocationUtil/Locations.php';
 include '../../Status.php';
 include '../../StatusMessage.php';
 
@@ -15,6 +16,5 @@ if (!empty($_POST['Key'])) {
     $locations = new Locations($key);
     $locations->getLocations();
 } else {
-    $status = new Status();
-    $status->isEmpty();
+    Status::isEmpty();
 }
