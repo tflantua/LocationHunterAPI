@@ -9,9 +9,9 @@ class LocationData
     public $riddle;
     public $points;
     public $difficulty;
-    public $hint;
-    public $hintId;
-    public $cost;
+    private $hint;
+    private $hintId;
+    private $cost;
     public $hintsList;
 
     public function set($data)

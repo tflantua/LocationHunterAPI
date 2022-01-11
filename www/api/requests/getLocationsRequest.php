@@ -6,6 +6,7 @@ include '../../config/DatabaseLocationHunter.php';
 include '../../authentication/CheckKey.php';
 include '../../LocationUtil/Locations.php';
 include '../../data/LocationData.php';
+include '../../data/HintData.php';
 include '../../Status.php';
 include '../../StatusMessage.php';
 
