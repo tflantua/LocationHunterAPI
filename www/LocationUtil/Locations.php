@@ -27,7 +27,9 @@ class Locations
                     for ($i = 0; $i < sizeof($info); $i++) {
                         unset($info[$i]);
                     }
-                    $locationData = (object)$info;
+                    $infoJson = json_decode($info, true);
+                    $locationData = new LocationData();
+                    $locationData->set($infoJson);
                     var_dump($locationData);
                 }
 
