@@ -19,11 +19,16 @@ class Locations
             if ($checkKey != null) {
                 $query = "SELECT  
 `North` as 'north', `East` as 'east', `Name` as 'name', `RiddleName` as 'riddleName',
-`Riddle` as 'riddle', `Points` as 'points', `Difficulty` as 'difficulty', group_concat(`Hint`) as 'hint', group_concat(`HintsID`) as hintId, group_concat(`Cost`) as cost
+`Riddle` as 'riddle', `Points` as 'points', `Difficulty` as 'difficulty', GROUP_CONCAT(`Hint` SEPARATOR ';') as 'hint', group_concat(`HintsID` SEPARATOR ';') as hintId, group_concat(`Cost` SEPARATOR ';') as cost
                             FROM Location INNER JOIN Hints ON Location.ID = Hints.LocationID GROUP BY `North`, `East`, `Name`, `RiddleName`, `Riddle`, `Points`, `Difficulty`";
                 $result = mysqli_query($this->conn, $query);
                 if ($result) {
-                    var_dump(mysqli_fetch_array($result));
+                    $info = mysqli_fetch_array($result);
+                    for ($i = 0; $i < sizeof($info); $i++) {
+                        unset($info[$i]);
+                    }
+                    $locationData = (object)$info;
+                    var_dump($locationData);
                 }
 
             } else Status::notAccepted();
