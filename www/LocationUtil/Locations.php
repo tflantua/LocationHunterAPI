@@ -22,9 +22,8 @@ class Locations
 `Riddle` as 'riddle', `Points` as 'points', `Difficulty` as 'difficulty', group_concat(`Hint`) as 'hint', group_concat(`HintsID`) as hintId, group_concat(`Cost`) as cost
                             FROM Location INNER JOIN Hints ON Location.ID = Hints.LocationID GROUP BY `North`, `East`, `Name`, `RiddleName`, `Riddle`, `Points`, `Difficulty`";
                 $result = mysqli_query($this->conn, $query);
-                var_dump($result);
                 if ($result) {
-
+                    var_dump(mysqli_fetch_array($result));
                 }
 
             } else Status::notAccepted();
