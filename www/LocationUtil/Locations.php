@@ -32,7 +32,7 @@ class Locations
                     $locationData = new LocationData();
                     $locationData->set($infoJson);
 
-                    var_dump(json_encode($locationData));
+                    var_dump(json_decode(json_encode($locationData)));
                 }
 
             } else Status::notAccepted();
