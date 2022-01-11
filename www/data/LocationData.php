@@ -14,6 +14,7 @@ class LocationData
     public $cost;
 
     public function set($data){
+        var_dump($data);
         foreach ($data AS $key => $value) $this->{$key} = $value;
     }
 
