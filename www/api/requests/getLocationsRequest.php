@@ -5,6 +5,7 @@ header("Content-Type:application/json");
 include '../../config/DatabaseLocationHunter.php';
 include '../../authentication/CheckKey.php';
 include '../../LocationUtil/Locations.php';
+include '../../data/LocationData.php';
 include '../../Status.php';
 include '../../StatusMessage.php';
 
