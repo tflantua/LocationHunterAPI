@@ -90,7 +90,7 @@ class Locations
         if ($result) {
             if ($result->num_rows > 0) {
                 $result = $result->fetch_assoc();
-                $location->visited = $result["UserWasHere"];
+                $location->visited = $result["UserWasHere"] > 0;
             }
         }
     }
