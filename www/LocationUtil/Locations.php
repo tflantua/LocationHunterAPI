@@ -23,27 +23,16 @@ class Locations
                             FROM Location INNER JOIN Hints ON Location.ID = Hints.LocationID GROUP BY `North`, `East`, `Name`, `RiddleName`, `Riddle`, `Points`, `Difficulty`";
                 $result = mysqli_query($this->conn, $query);
                 if ($result) {
-                    $info = [];
-                    while ($array = $result->fetch_assoc()) {
-                        $info[] = $array;
-                    }
-                    var_dump($info);
                     $locationList = [];
-//                    for ($i = 0; $i < sizeof($info); $i++) {
-//                        $location = $info[$i];
-//                        var_dump($location);
-//                        for ($j = 0; $j < sizeof($location); $j++) {
-//                            unset($location[$j]);
-//                        }
-//                        var_dump($location);
-//                        $locationJson = json_encode($location);
-//                        $locationJson = json_decode($locationJson);
-//                        $locationData = new LocationData();
-//                        $locationData->set($locationJson);
-//                        $locationList[$i] = $locationData;
-//                    }
-                    //var_dump($locationList);
-                }
+                    while ($location = $result->fetch_assoc()) {
+                        $locationJson = json_encode($location);
+                        $locationJson = json_decode($locationJson);
+                        $locationData = new LocationData();
+                        $locationData->set($locationJson);
+                        $locationList[] = $locationData;
+                    }
+                    var_dump($locationList);
+                } else Status::ServerError();
 
             } else Status::notAccepted();
         } else Status::ServerError();
