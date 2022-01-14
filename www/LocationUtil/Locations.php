@@ -23,7 +23,7 @@ class Locations
                             FROM Location INNER JOIN Hints ON Location.ID = Hints.LocationID GROUP BY `North`, `East`, `Name`, `RiddleName`, `Riddle`, `Points`, `Difficulty`";
                 $result = mysqli_query($this->conn, $query);
                 if ($result) {
-                    $info = mysqli_fetch_array($result);
+                    $info = mysqli_fetch_all($result);
                     var_dump($info);
                     for ($i = 0; $i < sizeof($info); $i++) {
                         unset($info[$i]);
