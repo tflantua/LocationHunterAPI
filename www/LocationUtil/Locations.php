@@ -71,9 +71,9 @@ class Locations
                         for ($i = 0; $i < sizeof($hints); $i++) {
                             $hint = $hints[$i];
                             if ($hint instanceof HintData) {
+                                echo $user_hint["Unlocked"];
                                 if ($hint->ID == $user_hint["HintID"]) {
                                     $hint->unlocked = $user_hint["Unlocked"];
-                                    echo $user_hint["Unlocked"];
                                 }
                             }
                         }
