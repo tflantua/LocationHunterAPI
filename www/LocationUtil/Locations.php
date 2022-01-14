@@ -41,7 +41,7 @@ class Locations
                         }
                     }
 
-                    echo json_encode($locationList);
+                    Status::showOk($locationList);
                 } else Status::ServerError();
 
             } else Status::notAccepted();
