@@ -7,6 +7,7 @@ include '../../authentication/CheckKey.php';
 include '../../LocationUtil/Locations.php';
 include '../../data/LocationData.php';
 include '../../data/HintData.php';
+include '../../data/LocationModelData.php';
 include '../../Status.php';
 include '../../StatusMessage.php';
 
