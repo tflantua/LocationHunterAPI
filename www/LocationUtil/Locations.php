@@ -24,14 +24,19 @@ class Locations
                 $result = mysqli_query($this->conn, $query);
                 if ($result) {
                     $info = mysqli_fetch_all($result);
-                    var_dump($info);
+                    $locationList = [];
                     for ($i = 0; $i < sizeof($info); $i++) {
-                        unset($info[$i]);
+                        $location = $info[$i];
+                        for ($j = 0; $j < sizeof($location); $j++) {
+                            unset($location[$j]);
+                        }
+                        $locationJson = json_encode($location);
+                        $locationJson = json_decode($locationJson);
+                        $locationData = new LocationData();
+                        $locationData->set($locationJson);
+                        $locationList[$i] = $locationData;
                     }
-                    $infoJson = json_encode($info);
-                    $infoJson = json_decode($infoJson);
-                    $locationData = new LocationListData();
-                    $locationData->set($infoJson);
+                    var_dump($locationList);
                 }
 
             } else Status::notAccepted();
