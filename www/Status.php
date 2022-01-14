@@ -18,9 +18,9 @@ class Status
     {
         $userInfo = [];
 
-        $userInfo["Status"] = StatusMessage::code(200);
+        $userInfo[] = StatusMessage::code(200);
         if (!empty($data)) {
-            $userInfo["data"] = $data;
+            $userInfo[] = $data;
         }
 
         echo json_encode($userInfo);
