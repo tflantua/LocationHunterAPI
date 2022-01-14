@@ -41,7 +41,7 @@ class Signup
             $result = mysqli_query($this->conn, $query);
 
             if ($result) {
-                $data["key"] = $randomString;
+                $data["Key"] = $randomString;
                 $data["Name"] = $this->userName;
                 $data["Score"] = 0;
 
