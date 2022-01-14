@@ -3,9 +3,10 @@
 class LocationData
 {
     public $ID;
-    public $north;
-    public $east;
-    public $name;
+    private $north;
+    private $east;
+    private $name;
+    public $locationModel;
     public $riddleName;
     public $riddle;
     public $points;
@@ -21,6 +22,7 @@ class LocationData
         foreach ($data as $key => $value) $this->{$key} = $value;
 
         $this->setHints();
+        $this->locationModel = new LocationModelData($this->north, $this->east, $this->name);
     }
 
     private function setHints()
