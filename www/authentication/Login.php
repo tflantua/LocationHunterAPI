@@ -21,17 +21,14 @@ class Login
     public function logIn()
     {
         if ($this->conn != null) {
-            $query = "SELECT `Score`, `Password`, `Key`, `Name` FROM `User` WHERE `Name` = '$this->username'";
+            $query = "SELECT `ID`, `Score`, `Password`, `Key`, `Name` FROM `User` WHERE `Name` = '$this->username'";
             $result = mysqli_query($this->conn, $query);
 
             if ($result) {
-                $userInfo = mysqli_fetch_array($result);
+                $userInfo = mysqli_fetch_assoc($result);
 
                 if ($result->num_rows > 0) {
                     if (password_verify($this->password, $userInfo["Password"])) {
-                        for ($i = 0; $i < sizeof($userInfo); $i++) {
-                            unset($userInfo[$i]);
-                        }
                         unset($userInfo['Password']);
 
                         Status::showOk($userInfo);
