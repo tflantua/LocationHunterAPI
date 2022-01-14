@@ -23,23 +23,23 @@ class Locations
                             FROM Location INNER JOIN Hints ON Location.ID = Hints.LocationID GROUP BY `North`, `East`, `Name`, `RiddleName`, `Riddle`, `Points`, `Difficulty`";
                 $result = mysqli_query($this->conn, $query);
                 if ($result) {
-                    $info = mysqli_fetch_all($result);
-                    var_dump($info);
+//                    $info = mysqli_fetch_all($result);
+//                    var_dump($info);
                     var_dump(mysqli_fetch_array($result));
                     $locationList = [];
-                    for ($i = 0; $i < sizeof($info); $i++) {
-                        $location = $info[$i];
-                        var_dump($location);
-                        for ($j = 0; $j < sizeof($location); $j++) {
-                            unset($location[$j]);
-                        }
-                        var_dump($location);
-                        $locationJson = json_encode($location);
-                        $locationJson = json_decode($locationJson);
-                        $locationData = new LocationData();
-                        $locationData->set($locationJson);
-                        $locationList[$i] = $locationData;
-                    }
+//                    for ($i = 0; $i < sizeof($info); $i++) {
+//                        $location = $info[$i];
+//                        var_dump($location);
+//                        for ($j = 0; $j < sizeof($location); $j++) {
+//                            unset($location[$j]);
+//                        }
+//                        var_dump($location);
+//                        $locationJson = json_encode($location);
+//                        $locationJson = json_decode($locationJson);
+//                        $locationData = new LocationData();
+//                        $locationData->set($locationJson);
+//                        $locationList[$i] = $locationData;
+//                    }
                     //var_dump($locationList);
                 }
 
