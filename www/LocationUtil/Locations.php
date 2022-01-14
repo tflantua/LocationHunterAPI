@@ -15,8 +15,8 @@ class Locations
     public function getLocations()
     {
         if ($this->conn != null) {
-            $checkKey = CheckKey::check($this->key, $this->conn);
-            if ($checkKey != null) {
+            $userId = CheckKey::check($this->key, $this->conn);
+            if ($userId != null) {
                 $query = "SELECT  
 `North` as 'north', `East` as 'east', `Name` as 'name', `RiddleName` as 'riddleName',
 `Riddle` as 'riddle', `Points` as 'points', `Difficulty` as 'difficulty', GROUP_CONCAT(`Hint` SEPARATOR ';') as 'hint', group_concat(`HintsID` SEPARATOR ';') as hintId, group_concat(`Cost` SEPARATOR ';') as cost
@@ -37,5 +37,7 @@ class Locations
 
             } else Status::notAccepted();
         } else Status::ServerError();
+
+        $this->conn->close();
     }
 }

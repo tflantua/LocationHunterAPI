@@ -42,8 +42,21 @@ class Signup
 
             if ($result) {
                 $data["key"] = $randomString;
+                $data["Name"] = $this->userName;
+                $data["Score"] = 0;
 
-                Status::showOk($data);
+                $query = "SELECT `ID` FROM User WHERE Name = '$this->userName'";
+                $result = mysqli_query($this->conn, $query);
+                if ($result){
+                    $info = mysqli_fetch_array($result);
+
+                    $data["ID"] = $info["ID"];
+
+
+                    Status::showOk($data);
+                } else {
+                    Status::ServerError();
+                }
 
             } else {
                 Status::ServerError();
