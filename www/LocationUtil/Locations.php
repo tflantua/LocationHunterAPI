@@ -73,6 +73,7 @@ class Locations
                             if ($hint instanceof HintData) {
                                 if ($hint->ID == $user_hint["HintID"]) {
                                     $hint->unlocked = $user_hint["Unlocked"];
+                                    echo $user_hint["Unlocked"];
                                 }
                             }
                         }
