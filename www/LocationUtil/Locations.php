@@ -27,6 +27,7 @@ class Locations
                     $locationList = [];
                     for ($i = 0; $i < sizeof($info); $i++) {
                         $location = $info[$i];
+                        $location = mysqli_fetch_array($location);
                         var_dump($location);
                         for ($j = 0; $j < sizeof($location); $j++) {
                             unset($location[$j]);
