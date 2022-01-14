@@ -18,7 +18,7 @@ class Status
     {
         $userInfo = [];
 
-        $userInfo[] = StatusMessage::code(200);
+        $userInfo["Status"] = StatusMessage::code(200);
         if (!empty($data)) {
             $userInfo["data"] = $data;
         }
