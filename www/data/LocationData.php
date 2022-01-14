@@ -2,6 +2,7 @@
 
 class LocationData
 {
+    public $ID;
     public $north;
     public $east;
     public $name;
@@ -13,6 +14,7 @@ class LocationData
     private $hintId;
     private $cost;
     public $hintsList;
+    public $visited = false;
 
     public function set($data)
     {
@@ -35,7 +37,5 @@ class LocationData
 
             $this->hintsList[$i] = $hintData;
         }
-
-        var_dump($this->hintsList);
     }
 }

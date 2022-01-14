@@ -5,6 +5,7 @@ class HintData
     public $hint;
     public $ID;
     public $cost;
+    public $unlocked = false;
 
     /**
      * @return mixed
