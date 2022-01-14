@@ -24,10 +24,10 @@ class Locations
                 $result = mysqli_query($this->conn, $query);
                 if ($result) {
                     $info = mysqli_fetch_all($result);
+                    $info = mysqli_fetch_array($info);
                     $locationList = [];
                     for ($i = 0; $i < sizeof($info); $i++) {
                         $location = $info[$i];
-                        $location = mysqli_fetch_array($location);
                         var_dump($location);
                         for ($j = 0; $j < sizeof($location); $j++) {
                             unset($location[$j]);
