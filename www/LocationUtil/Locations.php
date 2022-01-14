@@ -59,7 +59,7 @@ class Locations
                 if ($hint instanceof HintData) {
                     if ($i == 0) {
                         $query .= "HintID = $hint->ID";
-                    } else $query .= "OR HintID = $hint->ID";
+                    } else $query .= " OR HintID = $hint->ID";
                 }
             }
             $query .= ")";
