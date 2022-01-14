@@ -63,7 +63,6 @@ class Locations
                 }
             }
             $query .= ")";
-            echo $query;
 
             $result = mysqli_query($this->conn, $query);
             if ($result) {
