@@ -22,6 +22,7 @@ class LocationData
         foreach ($data as $key => $value) $this->{$key} = $value;
 
         $this->setHints();
+        echo 1;
         $this->locationModel = new LocationModelData($this->north, $this->east, $this->name);
     }
 
