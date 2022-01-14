@@ -25,7 +25,7 @@ class Locations
                 if ($result) {
 //                    $info = mysqli_fetch_all($result);
 //                    var_dump($info);
-                    var_dump(mysqli_stmt_next_result($result));
+                    var_dump($result);
                     $locationList = [];
 //                    for ($i = 0; $i < sizeof($info); $i++) {
 //                        $location = $info[$i];
