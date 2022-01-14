@@ -70,8 +70,8 @@ class Locations
                     while ($user_hint = $result->fetch_assoc()) {
                         for ($i = 0; $i < sizeof($hints); $i++) {
                             $hint = $hints[$i];
+                            echo $user_hint["Unlocked"];
                             if ($hint instanceof HintData) {
-                                echo $user_hint["Unlocked"];
                                 if ($hint->ID == $user_hint["HintID"]) {
                                     $hint->unlocked = $user_hint["Unlocked"];
                                 }
