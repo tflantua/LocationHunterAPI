@@ -27,6 +27,7 @@ class Locations
                     $locationList = [];
                     for ($i = 0; $i < sizeof($info); $i++) {
                         $location = $info[$i];
+                        var_dump($location);
                         for ($j = 0; $j < sizeof($location); $j++) {
                             unset($location[$j]);
                         }
