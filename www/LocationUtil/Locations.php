@@ -30,13 +30,14 @@ class Locations
                         for ($j = 0; $j < sizeof($location); $j++) {
                             unset($location[$j]);
                         }
+                        var_dump($location);
                         $locationJson = json_encode($location);
                         $locationJson = json_decode($locationJson);
                         $locationData = new LocationData();
                         $locationData->set($locationJson);
                         $locationList[$i] = $locationData;
                     }
-                    var_dump($locationList);
+                    //var_dump($locationList);
                 }
 
             } else Status::notAccepted();
