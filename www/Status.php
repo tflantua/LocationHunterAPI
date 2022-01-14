@@ -20,7 +20,7 @@ class Status
 
         $userInfo[] = StatusMessage::code(200);
         if (!empty($data)) {
-            $userInfo["data"] = $data;
+            $userInfo[] = $data;
         }
 
         echo json_encode($userInfo);
